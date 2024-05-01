@@ -1,4 +1,4 @@
-import React from "react"
+import { useState } from "react"
 
 export function UserInput(){
     const [inputData, setInputData] = useState()
