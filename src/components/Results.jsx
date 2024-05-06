@@ -6,7 +6,6 @@ export default function Results({ input }){
     results[0].valueEndOfYear - 
     results[0].annualInvestment - 
     results[0].interest;
-    console.log(collectiveInvestment)
     return(
         <table id='result'>
             <thead>
@@ -20,8 +19,8 @@ export default function Results({ input }){
             </thead>
         <tbody>
         {results.map(yearData => {
-            const totalInterest = yearData.valueEndOfYear-yearData.annualInvestment*yearData.year-initialInvestment;
-            const collectiveInvestment = yearData.annualInvestment*yearData.year;
+            const totalInterest = yearData.valueEndOfYear-yearData.annualInvestment*yearData.year;
+            const collectiveInvestment = yearData.valueEndOfYear - totalInterest ;
             return(
                 <tr key={yearData.year}>
                     <td>{yearData.year}</td>
