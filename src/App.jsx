@@ -11,12 +11,14 @@ const [userInput, setUserInput] = useState({
   expectedReturn : 6,
   duration : 10
 })  
+const isInputTrue = userInput.duration >= 1; 
 
 function handleChange(inputIdentifier, newValue){
   setUserInput(prevUserInput => {
-      return { 
-          ...prevUserInput, [inputIdentifier ]: +newValue
+      return {
+        ...prevUserInput, [inputIdentifier ]: +newValue
       }
+      
   })
 }
 
@@ -24,9 +26,9 @@ function handleChange(inputIdentifier, newValue){
     <>
       <Header id='header'/>
       <UserInput userInput={userInput} onChangeInput={handleChange}/>
-      <Results input={userInput}/>
+      {!isInputTrue && <p className='center'>Please input a duration larger than 0</p> }
+      {isInputTrue && <Results input={userInput}/>}
     </>
   )
 }
-
 export default App
